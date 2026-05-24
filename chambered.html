@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Legend of the Chambered - Alpha Build</title>
   <style>
+    /* --- RETRO STYLE PALETTE --- */
     :root {
-      /* Classic dark slate and bright 2009 web links */
       --bg-panel: #222222;
       --border-outer: #555555;
       --border-inner: #111111;
@@ -20,14 +20,13 @@
       margin: 0;
       padding: 0;
       font-family: "Courier New", Courier, monospace, sans-serif;
-
       background-color: #1c1512;
       background-image: url('https://minecraft.net'); 
       background-repeat: repeat;
       color: var(--text-color);
     }
 
-    /* --- NAVIGATION BAR (Retained Layout) --- */
+    /* --- NAVIGATION BAR --- */
     nav {
       background-color: var(--bg-panel);
       padding: 10px 20px;
@@ -40,7 +39,7 @@
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
-      color: #ffff55; /* Classic retro yellow branding text */
+      color: #ffff55; 
       text-shadow: 2px 2px #000000;
     }
 
@@ -57,7 +56,7 @@
       background-color: #444444;
     }
 
-    /* --- CONTENT CONTAINER & PAGES (Retained Layout) --- */
+    /* --- CONTENT CONTAINER & PAGES --- */
     .container {
       max-width: 800px;
       margin: 30px auto;
@@ -68,7 +67,6 @@
       display: none; 
       background-color: var(--bg-panel);
       padding: 30px;
-      /* Heavy chunked retro borders */
       border: 4px solid var(--border-outer);
       outline: 2px solid var(--border-inner);
       box-shadow: 5px 5px 15px rgba(0,0,0,0.8);
@@ -97,7 +95,7 @@
       color: #dddddd;
     }
 
-    /* --- 2009 STYLE BUTTONS --- */
+    /* --- RETRO STYLE BUTTONS --- */
     .btn {
       display: inline-block;
       background-color: #555555;
@@ -117,6 +115,11 @@
       border-color: #77ff77;
     }
 
+    /* --- RETRO FORMS --- */
+    .form-group {
+      margin-bottom: 15px;
+    }
+
     label {
       display: block;
       margin-bottom: 5px;
@@ -130,7 +133,7 @@
       box-sizing: border-box;
       background-color: #000000;
       border: 2px solid #555555;
-      color: #55ff55; /* Retro green terminal typing text */
+      color: #55ff55; 
       font-family: monospace;
       font-size: 1rem;
     }
@@ -159,47 +162,35 @@
       margin-bottom: 5px;
     }
 
-    /* --- FORUM BLOCKS --- */
-    .forum-category {
-      background-color: #111111;
-      border: 2px solid #444444;
-      padding: 15px;
-      margin-bottom: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    /* --- RETRO FOOTER --- */
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #888888;
+      border-top: 4px solid var(--border-outer);
+      background-color: var(--bg-panel);
     }
-
-    .forum-info h3 a {
+    
+    footer a {
       color: var(--link-color);
-      text-decoration: underline;
-    }
-
-    .forum-info h3 a:hover {
-      color: var(--link-hover);
-    }
-
-    .forum-stats {
-      font-size: 0.85rem;
-      color: #ffff55;
-      font-family: monospace;
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVIGATION BAR (Layout Unchanged) -->
+  <!-- NAVIGATION BAR -->
   <nav>
     <div class="logo">Legend of the Chambered</div>
     <div class="nav-links">
       <a onclick="showPage('home')">Home</a>
       <a onclick="showPage('blog')">Dev Blog</a>
-      <a onclick="showPage('forums')">Forums</a>
       <a onclick="showPage('account')">Account</a>
     </div>
   </nav>
 
-  <!-- MAIN CONTAINER (Layout Unchanged) -->
+  <!-- MAIN CONTAINER -->
   <div class="container">
 
     <!-- PAGE 1: HOME -->
@@ -214,12 +205,12 @@
       <h1>Development Blog</h1>
       <div class="blog-post">
         <div class="date">MAY 23, 2026</div>
-        <h2>0.0.11a Release</h2>
-        <p>first update, um it kinda sucks but at least its the first. Many bugs, and yeah kinda sucks but i am working on it.</p>
+        <h2>Alpha 0.1 Patch Notes</h2>
+        <p>The initial Java executable build is live!</p>
       </div>
     </div>
 
-    <!-- PAGE 4: ACCOUNT -->
+    <!-- PAGE 3: ACCOUNT -->
     <div id="account" class="page">
       <h1>Player Portal</h1>
       <p>Create an account to track your alpha testing feedback.</p>
@@ -238,7 +229,12 @@
 
   </div>
 
-  <!-- PAGE SWITCHER SCRIPT (Layout Unchanged) -->
+  <!-- RETRO FOOTER SECTION -->
+  <footer>
+    <p>Thank you <a href="https://github.com" target="_blank">GitHub</a> for hosting this site!</p>
+  </footer>
+
+  <!-- PAGE SWITCHER SCRIPT -->
   <script>
     function showPage(pageId) {
       const pages = document.querySelectorAll('.page');
