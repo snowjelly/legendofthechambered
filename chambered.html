@@ -2,82 +2,258 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Legend of the Chambered</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legend of the Chambered - Alpha Build</title>
   <style>
-    /* Simple styling to hide pages that are not active */
-    .page {
-      display: none; 
-      padding: 20px;
-      font-family: sans-serif;
+    :root {
+      /* Classic dark slate and bright 2009 web links */
+      --bg-panel: #222222;
+      --border-outer: #555555;
+      --border-inner: #111111;
+      --text-color: #ffffff;
+      --link-color: #8888ff;
+      --link-hover: #ffffff;
+      --accent-green: #55aa55;
     }
-    .active {
-      display: block; /* Only the active page gets shown */
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Courier New", Courier, monospace, sans-serif;
+
+      background-color: #1c1512;
+      background-image: url('https://minecraft.net'); 
+      background-repeat: repeat;
+      color: var(--text-color);
     }
-    nav a {
-      margin-right: 15px;
-      text-decoration: none;
+
+    /* --- NAVIGATION BAR (Retained Layout) --- */
+    nav {
+      background-color: var(--bg-panel);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid var(--border-outer);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ffff55; /* Classic retro yellow branding text */
+      text-shadow: 2px 2px #000000;
+    }
+
+    .nav-links a {
+      color: var(--link-color);
+      text-decoration: underline;
+      margin-left: 20px;
       font-weight: bold;
       cursor: pointer;
+    }
+
+    .nav-links a:hover {
+      color: var(--link-hover);
+      background-color: #444444;
+    }
+
+    /* --- CONTENT CONTAINER & PAGES (Retained Layout) --- */
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .page {
+      display: none; 
+      background-color: var(--bg-panel);
+      padding: 30px;
+      /* Heavy chunked retro borders */
+      border: 4px solid var(--border-outer);
+      outline: 2px solid var(--border-inner);
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.8);
+    }
+
+    .active {
+      display: block; 
+    }
+
+    /* --- HEADINGS & TEXT --- */
+    h1, h2, h3 {
+      font-family: "Courier New", Courier, monospace;
+      color: #ffffff;
+      margin-top: 0;
+      text-shadow: 1px 1px #000000;
+    }
+
+    h1 {
+      border-bottom: 2px dashed #555555;
+      padding-bottom: 8px;
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #dddddd;
+    }
+
+    /* --- 2009 STYLE BUTTONS --- */
+    .btn {
+      display: inline-block;
+      background-color: #555555;
+      color: #ffffff;
+      padding: 8px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      font-family: monospace;
+      text-decoration: none;
+      border: 3px solid #777777;
+      outline: 2px solid #000000;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: var(--accent-green);
+      border-color: #77ff77;
+    }
+
+    /* --- RETRO FORMS --- */
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      background-color: #000000;
+      border: 2px solid #555555;
+      color: #55ff55; /* Retro green terminal typing text */
+      font-family: monospace;
+      font-size: 1rem;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: #ffffff;
+      outline: none;
+    }
+
+    /* --- DEV BLOG --- */
+    .blog-post {
+      border-bottom: 2px dashed #333333;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+
+    .blog-post:last-child {
+      border-bottom: none;
+    }
+
+    .date {
+      color: #ff5555;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    /* --- FORUM BLOCKS --- */
+    .forum-category {
+      background-color: #111111;
+      border: 2px solid #444444;
+      padding: 15px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .forum-info h3 a {
+      color: var(--link-color);
+      text-decoration: underline;
+    }
+
+    .forum-info h3 a:hover {
+      color: var(--link-hover);
+    }
+
+    .forum-stats {
+      font-size: 0.85rem;
+      color: #ffff55;
+      font-family: monospace;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- NAVIGATION BAR (Layout Unchanged) -->
   <nav>
-    <a onclick="showPage('home')">Home</a>
-    <a onclick="showPage('blog')">Dev Blog</a>
-    <a onclick="showPage('account')">Account</a>
+    <div class="logo">Legend of the Chambered</div>
+    <div class="nav-links">
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('blog')">Dev Blog</a>
+      <a onclick="showPage('forums')">Forums</a>
+      <a onclick="showPage('account')">Account</a>
+    </div>
   </nav>
 
-  <hr>
+  <!-- MAIN CONTAINER (Layout Unchanged) -->
+  <div class="container">
 
-  <!-- PAGE 1: HOME (DOWNLOAD) -->
-  <div id="home" class="page active">
-    <h1>Legend of the Chambered</h1>
-    <p>Welcome to the official alpha build launch page!</p>
-    <!-- Replace 'game.zip' with your actual file name later -->
-    <a href="chambered.jar" download>
-      <button style="font-size: 20px; padding: 10px;">Download Alpha Build</button>
-    </a>
+    <!-- PAGE 1: HOME -->
+    <div id="home" class="page active">
+      <h1>Alpha Build Launch</h1>
+      <p>Welcome to the official launch page. Download the file below and start testing.</p>
+      <p><a href="game.zip" download class="btn">Download Alpha Build</a></p>
+    </div>
+
+    <!-- PAGE 2: DEV BLOG -->
+    <div id="blog" class="page">
+      <h1>Development Blog</h1>
+      <div class="blog-post">
+        <div class="date">MAY 23, 2026</div>
+        <h2>0.0.11a Release</h2>
+        <p>first update, um it kinda sucks but at least its the first. Many bugs, and yeah kinda sucks but i am working on it.</p>
+      </div>
+    </div>
+
+    <!-- PAGE 4: ACCOUNT -->
+    <div id="account" class="page">
+      <h1>Player Portal</h1>
+      <p>Create an account to track your alpha testing feedback.</p>
+      <form onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <label>Username</label>
+          <input type="text" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" required>
+        </div>
+        <button type="submit" class="btn">Login</button>
+      </form>
+    </div>
+
   </div>
 
-  <!-- PAGE 2: DEV BLOG -->
-  <div id="blog" class="page">
-    <h1>Development Blog</h1>
-    <article>
-      <h2>0.0.11a Release</h2>
-      <p><small>May 23, 2026</small></p>
-      <p>first update, um it kinda sucks but at least its the first. Many bugs, and yeah kinda sucks but i am working on it./p>
-    </article>
-  </div>
-
-  <!-- PAGE 3: ACCOUNT (LOGIN/SIGNUP) -->
-  <div id="account" class="page">
-    <h1>Player Account</h1>
-    <form>
-      <h3>Login / Sign Up</h3>
-      <label>Username: <input type="text" required></label><br><br>
-      <label>Password: <input type="password" required></label><br><br>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-
-  <!-- JAVASCRIPT: Controls which page is visible -->
+  <!-- PAGE SWITCHER SCRIPT (Layout Unchanged) -->
   <script>
     function showPage(pageId) {
-      // Hide all elements with the class 'page'
       const pages = document.querySelectorAll('.page');
       pages.forEach(page => page.classList.remove('active'));
-
-      // Show the specific page the user clicked on
       document.getElementById(pageId).classList.add('active');
     }
   </script>
 
 </body>
 </html>
-
 
 
 
