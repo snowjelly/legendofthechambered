@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Legend of the Chambered</title>
+  <style>
+    /* Simple styling to hide pages that are not active */
+    .page {
+      display: none; 
+      padding: 20px;
+      font-family: sans-serif;
+    }
+    .active {
+      display: block; /* Only the active page gets shown */
+    }
+    nav a {
+      margin-right: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('blog')">Dev Blog</a>
+    <a onclick="showPage('account')">Account</a>
+  </nav>
+
+  <hr>
+
+  <!-- PAGE 1: HOME (DOWNLOAD) -->
+  <div id="home" class="page active">
+    <h1>Legend of the Chambered</h1>
+    <p>Welcome to the official alpha build launch page!</p>
+    <!-- Replace 'game.zip' with your actual file name later -->
+    <a href="chambered.jar" download>
+      <button style="font-size: 20px; padding: 10px;">Download Alpha Build</button>
+    </a>
+  </div>
+
+  <!-- PAGE 2: DEV BLOG -->
+  <div id="blog" class="page">
+    <h1>Development Blog</h1>
+    <article>
+      <h2>0.0.11a Release</h2>
+      <p><small>May 23, 2026</small></p>
+      <p>first update, um it kinda sucks but at least its the first. Many bugs, and yeah kinda sucks but i am working on it./p>
+    </article>
+  </div>
+
+  <!-- PAGE 3: ACCOUNT (LOGIN/SIGNUP) -->
+  <div id="account" class="page">
+    <h1>Player Account</h1>
+    <form>
+      <h3>Login / Sign Up</h3>
+      <label>Username: <input type="text" required></label><br><br>
+      <label>Password: <input type="password" required></label><br><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- JAVASCRIPT: Controls which page is visible -->
+  <script>
+    function showPage(pageId) {
+      // Hide all elements with the class 'page'
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+
+      // Show the specific page the user clicked on
+      document.getElementById(pageId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
